@@ -1,0 +1,8 @@
+simulation:
+  initial_portfolio: 10000
+  initial_shares: 0
+
+data:
+  ticker: "SPY"
+  start_date: "2015-01-01"
+  end_date: "2026-01-01"

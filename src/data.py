@@ -1,8 +1,9 @@
 import yfinance as yf
 import pandas as pd
 
-def get_spy_data():
+def get_spy_data(ticker, start_date, end_date):
 
-    spy_data = yf.download("SPY", start="2025-01-01", end="2026-01-01")
+    spy_data = yf.download(ticker, start = start_date, end = end_date)
     column_data = spy_data['Close'].squeeze().tolist()
+
     return column_data
