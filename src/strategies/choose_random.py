@@ -1,18 +1,6 @@
-import data
 import random
 
-
-
-def backtest():
-
-
-    portfolio = 10000
-    shares = 0
-
-    curr = data.get_spy_data()
-
-    for eod_close_price in curr:
-
+def choose_random(eod_close_price,portfolio,shares):
         move_decision = random.randint(-1,1)
         match move_decision:
             case -1:
@@ -25,14 +13,4 @@ def backtest():
                     shares += 1
                     portfolio -= eod_close_price
 
-    total_final_value = portfolio + (shares * eod_close_price)
-    return total_final_value
-
-
-if __name__ == "__main__":
-   print(backtest())
-
-
-
-
-    
+        return eod_close_price,portfolio,shares
