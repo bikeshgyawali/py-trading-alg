@@ -11,7 +11,7 @@ def choose_random(eod_close_price,portfolio,shares):
 
             case 1:
                 total_cost = buy_friction(eod_close_price)
-                if portfolio > total_cost:
+                if portfolio >= total_cost:
                     shares += 1
                     portfolio -= total_cost
 
