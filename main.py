@@ -1,6 +1,6 @@
-import data
-from strategies import choose_random 
-import config
+from src.data import data
+from src.strategies import choose_random
+from src import config
 
 portfolio = config.load_config()["simulation"]["initial_portfolio"]
 shares = config.load_config()["simulation"]["initial_shares"]

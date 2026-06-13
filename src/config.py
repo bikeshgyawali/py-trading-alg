@@ -1,8 +1,12 @@
+import os
 import yaml
 
-def load_config():
 
-    with open("../config.yaml", "r") as file:
+def load_config():
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    config_path = os.path.join(base_dir, "config.yaml")
+
+    with open(config_path, "r") as file:
         config = yaml.safe_load(file)
-        
+
     return config
