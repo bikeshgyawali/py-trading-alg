@@ -10,6 +10,12 @@ ticker = settings["data"]["ticker"]
 start_date = settings["data"]["start_date"]
 end_date = settings["data"]["end_date"]
 
+available_strategies = {
+
+    "random" : choose_random.choose_random
+
+}
+
 
 def backtest(portfolio, shares, ticker, start_date, end_date):
 
@@ -19,7 +25,7 @@ def backtest(portfolio, shares, ticker, start_date, end_date):
 
     for price in curr:
 
-        portfolio, shares = choose_random.choose_random(price, portfolio, shares)
+        portfolio, shares = available_strategies[settings["strategy"]](price, portfolio, shares)
         last_price = price
 
     total_final_value = portfolio + (shares * last_price)
