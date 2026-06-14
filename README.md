@@ -7,7 +7,6 @@ A modular, configurable backtesting framework for evaluating trading strategies 
 - **Configurable Backtesting**: Define your trading parameters and time ranges via YAML configuration
 - **Real Market Data**: Fetch historical stock data using Yahoo Finance API
 - **Modular Strategy System**: Easily swap and test different trading strategies
-- **Portfolio Management**: Track cash positions and share holdings throughout the backtest
 - **Friction Modeling**: Account for real-world trading costs and transaction friction
 - **Easy Setup**: Automated environment setup via bash script
 
