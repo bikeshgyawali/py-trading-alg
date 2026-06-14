@@ -88,30 +88,6 @@ The backtest will:
 3. Execute the trading strategy
 4. Return the final portfolio value (cash + shares value)
 
-## Project Structure
-
-```
-.
-├── main.py                 # Entry point for backtesting
-├── backtest.sh            # Automated setup and execution script
-├── config.yaml            # Configuration file (user-editable)
-├── requirements.txt       # Python dependencies
-├── LICENSE                # MIT License
-├── README.md              # This file
-└── src/
-    ├── __init__.py
-    ├── config.py          # Configuration loader
-    ├── data/
-    │   ├── __init__.py
-    │   └── data.py        # Data fetching utilities (Yahoo Finance API)
-    ├── strategies/
-    │   ├── __init__.py
-    │   └── choose_random.py   # Example trading strategy
-    └── utils/
-        ├── __init__.py
-        └── friction.py    # Transaction cost calculations
-```
-
 ## Development
 
 ### Adding New Strategies
