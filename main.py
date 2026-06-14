@@ -25,8 +25,6 @@ def backtest(portfolio, shares, ticker, start_date, end_date):
 
     last_price = 0.0
 
-    buy_hold_capture = None
-
     for price in curr:
 
         portfolio, shares = available_strategies[settings["strategy"]](price, portfolio, shares)
