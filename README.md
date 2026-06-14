@@ -13,7 +13,7 @@ A modular, configurable backtesting framework for evaluating trading strategies 
 ## Current Strategies 
 
 - Random Walk
-- More soon to come!
+- Buy and Hold
 
 ## Prerequisites
 

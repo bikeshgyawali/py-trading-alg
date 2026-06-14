@@ -1,6 +1,7 @@
 from src.data import data
 from src.strategies import choose_random
 from src import config
+from src.strategies import buy_hold
 
 settings = config.load_config()
 
@@ -12,7 +13,8 @@ end_date = settings["data"]["end_date"]
 
 available_strategies = {
 
-    "random" : choose_random.choose_random
+    "random" : choose_random.choose_random,
+    "buy and hold" : buy_hold.buy_hold
 
 }
 
@@ -22,6 +24,8 @@ def backtest(portfolio, shares, ticker, start_date, end_date):
     curr = data.get_spy_data(ticker, start_date, end_date)
 
     last_price = 0.0
+
+    buy_hold_capture = None
 
     for price in curr:
 
