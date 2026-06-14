@@ -14,6 +14,8 @@ A modular, configurable backtesting framework for evaluating trading strategies 
 
 - Random Walk
 - Buy and Hold
+- Long term 50 day MA vs 200 day MA crossover
+- Short term 5 day MA vs 20 day MA crossover
 
 ## Prerequisites
 

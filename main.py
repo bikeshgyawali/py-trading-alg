@@ -29,10 +29,10 @@ def backtest(portfolio, shares, ticker, start_date, end_date):
     curr = data.get_spy_data(ticker, start_date, end_date)
 
     last_price = 0.0
-
+    current_history = []
     for price in curr:
 
-        portfolio, shares = available_strategies[settings["strategy"]](price, portfolio, shares)
+        portfolio, shares, current_history = available_strategies[settings["strategy"]](price, portfolio, shares, current_history)
         last_price = price
 
     total_final_value = portfolio + (shares * last_price)

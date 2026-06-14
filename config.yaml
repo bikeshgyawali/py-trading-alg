@@ -7,5 +7,5 @@ data:
   start_date: "2015-01-01"
   end_date: "2026-01-01"
 
-#Available strategies : "buy and hold", "random", "short term SMA", "long term SMA"
-strategy: "buy and hold"
+#Available strategies : "buy and hold", "random", "short term SMA crossover", "long term SMA crossover"
+strategy: "short term SMA crossover"

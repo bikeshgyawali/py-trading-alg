@@ -1,7 +1,7 @@
 import random
 from src.utils.friction import buy_friction, sell_friction
 
-def choose_random(eod_close_price,portfolio,shares):
+def choose_random(eod_close_price,portfolio,shares,history=None):
         move_decision = random.randint(-1,1)
         match move_decision:
             case -1:
@@ -15,4 +15,4 @@ def choose_random(eod_close_price,portfolio,shares):
                     shares += 1
                     portfolio -= total_cost
 
-        return portfolio,shares
+        return portfolio,shares,history
