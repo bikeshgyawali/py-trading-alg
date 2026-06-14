@@ -1,8 +1,8 @@
 from src.data import data
 from src.strategies import choose_random
 from src.strategies import buy_hold
-from src.strategies import short_SMA
-from src.strategies import long_SMA
+from src.strategies import short_SMA_cross
+from src.strategies import long_SMA_cross
 
 from src import config
 
@@ -18,8 +18,8 @@ available_strategies = {
 
     "random" : choose_random.choose_random,
     "buy and hold" : buy_hold.buy_hold,
-    "short term SMA" : short_SMA.short_SMA,
-    "long term SMA" : long_SMA.long_SMA
+    "short term SMA crossover" : short_SMA_cross.short_SMA_cross,
+    "long term SMA crossover" : long_SMA_cross.long_SMA_cross
 
 }
 
