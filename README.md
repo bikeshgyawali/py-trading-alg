@@ -12,8 +12,9 @@ A modular, configurable backtesting framework for evaluating trading strategies 
 - **Easy Setup**: Automated environment setup via bash script
 
 ## Current Strategies 
--Random Walk
--More soon to come!
+
+- Random Walk
+- More soon to come!
 
 ## Prerequisites
 
