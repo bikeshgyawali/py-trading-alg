@@ -10,6 +10,13 @@ A modular, configurable backtesting framework for evaluating trading strategies 
 - **Friction Modeling**: Account for real-world trading costs and transaction friction
 - **Easy Setup**: Automated environment setup via bash script
 
+
+## Demo: Normalized Growth Visualization
+
+![Normalized Growth](images/demo.png)
+
+ The portfolio growth is normalized so all strategies start at the same baseline for easy comparison. It also plots growth instead of pure numbers since that would make things easier when comparing. Performance is normalized to a 100 based scale.
+
 ## Current Strategies 
 
 - Random Walk
@@ -104,13 +111,6 @@ Create a new Python file in `src/strategies/` with your trading logic. Each stra
 - **src/utils/friction.py**: Models trading costs and market friction
 - **src/strategies/**: Contains different trading strategy implementations
 
-## Example Output
-
-```
-15432.50
-```
-
-The output represents the total portfolio value at the end of the backtest period (cash + market value of holdings).
 
 ## License
 
