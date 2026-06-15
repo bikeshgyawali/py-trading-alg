@@ -1,9 +1,12 @@
+import inspect
+
 from src.data import data
 from src.strategies import choose_random
 from src.strategies import buy_hold
 from src.strategies import short_SMA_cross
 from src.strategies import long_SMA_cross
 from src.strategies import mean_reversion
+from src.utils import metrics
 
 from src import config
 
@@ -26,23 +29,37 @@ available_strategies = {
 }
 
 
-def backtest(portfolio, shares, ticker, start_date, end_date):
-
-    curr = data.get_spy_data(ticker, start_date, end_date)
-
-    last_price = 0.0
+def simulate(portfolio, shares, ticker, start_date, end_date):
+    prices = data.get_spy_data(ticker, start_date, end_date)
     current_history = []
-    for price in curr:
+    portfolio_values = []
 
-        portfolio, shares, current_history = available_strategies[settings["strategy"]](price, portfolio, shares, current_history)
-        last_price = price
+    for price in prices:
+        strategy = available_strategies[settings["strategy"]]
+        try:
+            portfolio, shares, current_history = strategy(price, portfolio, shares, current_history)
+        except TypeError:
+            portfolio, shares = strategy(price, portfolio, shares)
+        portfolio_values.append(portfolio + (shares * price))
 
-    total_final_value = portfolio + (shares * last_price)
-    return total_final_value
+    return portfolio_values, prices
+
+
+def backtest(portfolio, shares, ticker, start_date, end_date):
+    portfolio_values, _ = simulate(portfolio, shares, ticker, start_date, end_date)
+    return portfolio_values[-1] if portfolio_values else portfolio
 
 
 if __name__ == "__main__":
-   print(backtest(portfolio, shares, ticker, start_date, end_date))
+    portfolio_values, prices = simulate(portfolio, shares, ticker, start_date, end_date)
+    final_value = portfolio_values[-1] if portfolio_values else portfolio
+    results = metrics.compute_metrics(portfolio_values, prices)
+
+    print(f"Final portfolio value: ${final_value:.2f}")
+    print(f"Average daily portfolio return: {results['average_daily_portfolio_return']:.6f}")
+    print(f"Strategy alpha vs market return: {results['alpha_vs_market']:.6f}")
+    print(f"Maximum drawdown: {results['maximum_drawdown']:.6f}")
+    print(f"Sharpe ratio: {results['sharpe_ratio']:.6f}")
 
 
 
